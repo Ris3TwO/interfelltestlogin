@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
       if (this.token != null)
       {
+        localStorage.setItem('email', this.email);
         localStorage.setItem('token', this.token.sessionTokenBck)
         console.log("¡Token guardado!");
         this.router.navigateByUrl('data')

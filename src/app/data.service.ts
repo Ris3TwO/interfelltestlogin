@@ -5,25 +5,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  email;
-  token: any;
+  
 
   constructor(private http: HttpClient) { }
 
-  datos(email, token)
+  datos()
   {
     const httpOptions =
     {
       headers: new HttpHeaders(
         {
           'Content-Type': 'application/json',
-          'adminemail': `${email}`,
+          'adminemail': localStorage.getItem('email'),
           'app': 'APP_BCK',
-          'token': localStorage.getItem(this.token.sessionTokenBck)
+          'token': localStorage.getItem('token'),
+          
         }
       )
     };
-
-    return this.http.get(`https://dev.tuten.cl/TutenREST/rest/user/contacto%40tuten.cl/bookings`, httpOptions)
+    let mail = 'contacto@tuten.cl'
+    return this.http.get(`https://dev.tuten.cl:443/TutenREST/rest/user/${mail}/bookings`, httpOptions)
   };
 }

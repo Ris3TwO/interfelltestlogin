@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DepFlags } from '@angular/compiler/src/core';
+import { DataService } from 'src/app/data.service';
 
 export interface PeriodicElement {
   name: string;
@@ -7,7 +9,7 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -26,17 +28,32 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./data.component.css']
 })
 export class DataComponent implements OnInit {
-
+  datos;
   BOOKING_DATA: any;
-
-  constructor()
+  DATA:any; 
+  constructor(private api: DataService)
   {
+    this.api.datos().subscribe(response=>{
+      this.DATA =response;
+      console.log(this.DATA)
+      this.DATA.forEach(element => {
+        this.datos= [{
+          id: element.bookingId,
+          name: `${element.tutenUserClient.firstName}  ${element.tutenUserClient.lastName}`,
+          bookingTime: element.bookingTime,
+          direction: element.locationId.streetAddress,
+          price: element.bookingPrice
 
+        }]
+      });
+        console.log(this.datos)
+        this.dataSource = this.datos;
+    })
   }
 
   ngOnInit() {
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['id', 'name', 'date', 'address','price'];
+  dataSource = null;
 }
