@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DataComponent } from './components/data/data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatCardModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatToolbarModule
   ],
   exports: [
     MatButtonModule,
