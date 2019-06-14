@@ -5,7 +5,8 @@ import { DataComponent } from './components/data/data.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'data', component: DataComponent }
+  { path: 'data', component: DataComponent },
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
