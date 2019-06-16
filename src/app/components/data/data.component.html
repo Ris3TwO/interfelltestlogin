@@ -9,7 +9,7 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> boookingId </th>
+        <th mat-header-cell *matHeaderCellDef> BookingID </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
 
@@ -19,7 +19,7 @@
       </ng-container>
 
       <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Creacion </th>
+        <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
         <td mat-cell *matCellDef="let element"> {{element.bookingTime | date}} </td>
       </ng-container>
 
