@@ -15,15 +15,20 @@ export class DataService {
     {
       headers: new HttpHeaders(
         {
+          'Accept':'application/json',
           'Content-Type': 'application/json',
+          'App': 'APP_BCK',     
           'adminemail': localStorage.getItem('email'),
-          'app': 'APP_BCK',
           'token': localStorage.getItem('token'),
           
         }
       )
     };
     let mail = 'contacto@tuten.cl'
-    return this.http.get(`https://dev.tuten.cl:443/TutenREST/rest/user/${mail}/bookings`, httpOptions)
+    return this.http.get(`https://dev.tuten.cl:443/TutenREST/rest/user/${mail}/bookings?current=true`, httpOptions)
   };
+
+
+
+  
 }

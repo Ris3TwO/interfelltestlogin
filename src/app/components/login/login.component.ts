@@ -32,10 +32,9 @@ export class LoginComponent implements OnInit {
         console.log("¡Token guardado!");
         this.router.navigateByUrl('data')
       }
-    }), err => {
-
+    }), err =>
+    {
       console.log("¡Ocurrió un error al autenticar!", err)
-
     }
   }
 
