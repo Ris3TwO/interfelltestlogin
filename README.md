@@ -8,4 +8,4 @@ Clonar el repositorio y correr el comando `npm install`.
 
 ## Notas
 
-Debido a la falta de registros (solamente 1) no se realizó el filtro que fue solicitado, pero se planeaba implementar filtrado con angular material para dicho propósito.
+
